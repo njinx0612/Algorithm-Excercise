@@ -1,4 +1,10 @@
 package Algorithm;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * 완전탐색 알고리즘
  * @author dongki
@@ -21,15 +27,68 @@ public class BruteForceAlgorithm {
 	public static void main(String[] args) {
 		System.out.println("BP Algor START...");
 		
-		int[] answer = {1,2,3,4,5}; 
+		int[] answer = {5,5,5,5,4,4,4,3,3,2,2,1,0}; 
 		
 		solution(answer);
 	}
 
 	
 	public static int[] solution(int[] answers) {
-		System.out.println("solution START...");
-        int[] answer = {};
-        return answer;
+		int[] ans = new int[3];
+		
+		int[] people1 = {1,2,3,4,5};
+		int[] people2 = {2,1,2,3,2,4,2,5};
+		int[] people3 = {3,3,1,1,2,2,4,4,5,5};
+		
+		int pl1 = 0, pl2 = 0, pl3 = 0;
+		
+		for(int i=0; i<answers.length; i++) {
+			if( people1[i%(people1.length)] == answers[i] ) {
+//				System.out.println("i = " +i+"\t answer : " + answers[i] + "\t" + "1people : " + people1[i%(people1.length)]);
+				pl1++;
+			}
+			if( people2[i%(people2.length)] == answers[i]) {
+//				System.out.println("i = " +i+"\t answer : " + answers[i] + "\t" + "2people : " + people2[i%(people2.length)]);
+				pl2++;
+			}
+			if( people3[i%(people3.length)] == answers[i]) {
+//				System.out.println("i = " +i+"\t answer : " + answers[i] + "\t" + "3people : " + people3[i%(people3.length)]);
+				pl3++;
+			}
+		}
+
+//		System.out.println("pl1 = " + pl1);
+//		System.out.println("pl2 = " + pl2);
+//		System.out.println("pl3 = " + pl3);
+		
+		Map<String, Integer> hm = new HashMap<String, Integer>();
+		hm.put("1", pl1);
+		hm.put("2", pl2);
+		hm.put("3", pl3);
+		
+		// 최대값 구하
+		int max = pl1;
+		if( max < pl2 ) {
+			max = pl2;
+		} 
+		if( max < pl3 ) {
+			max = pl3;
+		}
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if( max == hm.get("1") ) {
+			list.add(1);
+		}
+		if( max == hm.get("2")) {
+			list.add(2);
+		}
+		if( max == hm.get("3")) {
+			list.add(3);
+		}
+		
+		for(int i=0; i<list.size(); i++) {
+			ans[i] = list.get(i);
+		}
+		return ans;
     }
 }
