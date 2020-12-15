@@ -27,14 +27,13 @@ public class BruteForceAlgorithm {
 	public static void main(String[] args) {
 		System.out.println("BP Algor START...");
 		
-		int[] answer = {5,5,5,5,4,4,4,3,3,2,2,1,0}; 
+		int[] answer = {1,2,3,4,5}; 
 		
 		solution(answer);
 	}
 
 	
 	public static int[] solution(int[] answers) {
-		int[] ans = new int[3];
 		
 		int[] people1 = {1,2,3,4,5};
 		int[] people2 = {2,1,2,3,2,4,2,5};
@@ -57,9 +56,9 @@ public class BruteForceAlgorithm {
 			}
 		}
 
-//		System.out.println("pl1 = " + pl1);
-//		System.out.println("pl2 = " + pl2);
-//		System.out.println("pl3 = " + pl3);
+		System.out.println("pl1 = " + pl1);
+		System.out.println("pl2 = " + pl2);
+		System.out.println("pl3 = " + pl3);
 		
 		Map<String, Integer> hm = new HashMap<String, Integer>();
 		hm.put("1", pl1);
@@ -85,7 +84,8 @@ public class BruteForceAlgorithm {
 		if( max == hm.get("3")) {
 			list.add(3);
 		}
-		
+
+		int[] ans = new int[list.size()];
 		for(int i=0; i<list.size(); i++) {
 			ans[i] = list.get(i);
 		}
