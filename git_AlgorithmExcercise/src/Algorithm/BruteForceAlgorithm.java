@@ -9,6 +9,7 @@ import java.util.Map;
  * 완전탐색 알고리즘
  * @author dongki
  * sources : programmers
+ * data : 2020-12-15 (Tue)
  * 수포자는 수학을 포기한 사람의 준말입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.
 
 1번 수포자가 찍는 방식: 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ...
@@ -21,6 +22,12 @@ import java.util.Map;
 시험은 최대 10,000 문제로 구성되어있습니다.
 문제의 정답은 1, 2, 3, 4, 5중 하나입니다.
 가장 높은 점수를 받은 사람이 여럿일 경우, return하는 값을 오름차순 정렬해주세요.
+
+***Other Code Review
+*date : 2020-12-16 (Wed)
+현재 내 코드에서 HashMap을 쓴 이점이 없음. 어차피 하드 코딩으로 넣어주니까
+HashMap을 제거하고 그냥 if문에서 바로 하드코딩으로 1,2...이렇게 넣어주면 될 
+
  */
 public class BruteForceAlgorithm {
 
