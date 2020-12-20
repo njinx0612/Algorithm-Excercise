@@ -8,7 +8,7 @@ public class DPOneLegJumping {
 
 	public static void main(String[] args) {
 		
-		int[][] arr = { {2,5,1,6,1,4,1},{6,1,1,2,2,9,3},{7,2,3,2,1,3,1},{1,1,3,1,7,1,2},{4,1,2,3,4,1,3},{3,3,1,2,3,4,1},{1,5,2,9,4,7,0} };
+		int[][] arr = { {2,5,1,6,1,4,1},{6,1,1,2,2,9,3},{7,2,3,2,1,3,1},{1,1,3,1,7,1,2},{4,1,2,3,4,1,2},{3,3,1,2,3,4,1},{1,5,2,9,4,7,0} };
 		
 		printArray(arr);
 		
@@ -18,16 +18,16 @@ public class DPOneLegJumping {
 
 	public static int jumping(int[][] arr, int x, int y, int matrix){
 
-		System.out.println("Input     x = " + x + "\t y = " + y);
+		System.out.print("["+x+", "+y+"] -> ");
 		// 배열의 범위를 벗어난 x,y 값인지 체크
 		if( x > (matrix-1) || y > (matrix-1)) {
-			System.out.println("배열범위 over");
+			System.out.print("over -> ");
 			return -1;
 		}
 		
 		//시작점과 끝점이 아닌데 값이 0인 경우
 		if( arr[x][y] == 0 && (x<(matrix-1) && (y<(matrix-1))) ) {
-			System.out.println("시작,끝점 제외 값이 0인경우");
+			System.out.print("value error -> ");
 			return -1;
 		}
 		
@@ -36,11 +36,8 @@ public class DPOneLegJumping {
 			return 1;
 		}
 		
-//		System.out.println("arr["+(x+arr[x][y])+"]"+"["+y+"] = " + arr[(x+arr[x][y])][y] );
-		System.out.println("--- x:"+x+" y:"+y+"  arr[x][y]:"+arr[x][y]);
+//		System.out.println("--- x:"+x+" y:"+y+"  arr[x][y]:"+arr[x][y]);
 		if( jumping(arr, x+arr[x][y], y, matrix) < 0) {
-//			if( y+arr[x][y] > matrix-1) return -1;
-//			System.out.println("arr["+(x+arr[x][y])+"]"+"["+(y+arr[x][y])+"] = " + arr[x][y+arr[x][y]] );
 			if(jumping(arr, x, y+arr[x][y], matrix) < 0) return -1;
 			else return 1;
 		} else {
