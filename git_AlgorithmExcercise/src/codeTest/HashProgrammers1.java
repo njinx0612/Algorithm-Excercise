@@ -44,6 +44,12 @@ public class HashProgrammers1 {
 		String[] phoneBookList4 = {"12","112","1","567","88"};
 		
 		System.out.println(hashSolution(phoneBookList4));
+		
+		for(String tmp1 : phoneBookList1) {
+			for(String tmp2 : phoneBookList1) {
+				System.out.println(">>>> " + tmp2);
+			}
+		}
 	}
 
 	/*
@@ -69,5 +75,27 @@ public class HashProgrammers1 {
 		
         return answer;
 	}
+	
+	/*** Other Code Review
+	 * 2021-01-31 (Sun)
+	 * Using startsWith Method
+	 * j=i+1, i.indexOf and j.indexOf 
+	 */
+//	public boolean hashSolution(String[] phoneBook) {
+//		for(int i=0; i<phoneBook.length-1; i++) {
+//			for(int j=i+1; j<phoneBook.length; j++) {
+//				if(phoneBook[i].startsWith(phoneBook[j])) {return false;}
+//				if(phoneBook[j].startsWith(phoneBook[i])) {return false;}
+//			}
+//		}
+//		return true;
+//	}
+	
+	//색다른 풀이 
+//    public boolean solution(String[] phone_book) {
+//        String text = String.format(" %s", String.join(" ", phone_book));
+//        return !Arrays.stream(phone_book)
+//            .anyMatch(s -> text.split(String.format(" %s", s)).length > 2);
+//    }
 
 }
